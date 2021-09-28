@@ -12,6 +12,17 @@ const template = [ // This is the template for the main menu.
             }
         ]
     }
+    , {
+        label: 'View',
+        submenu: [
+           { type: 'separator' },
+           { role: 'resetzoom' },
+           { role: 'zoomin' },
+           { role: 'zoomout' },
+           { type: 'separator' },
+           { role: 'togglefullscreen' }
+        ]
+     }
 ];
 
 if(process.platform === 'darwin') {

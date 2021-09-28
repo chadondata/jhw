@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" 
+        content="
+            default-src 'self'; 
+            script-src 'self' 'unsafe-inline'; 
+            style-src-elem 'self' https://maxcdn.bootstrapcdn.com 'unsafe-inline';
+            font-src 'self' https://maxcdn.bootstrapcdn.com;
+            connect-src 'self' https://cdn.jsdelivr.net;
+        "
+    >
+    <meta http-equiv="XContent-Security-Policy" 
+        content="
+            default-src 'self'; 
+            script-src 'self'; 
+            style-src-elem 'self' https://maxcdn.bootstrapcdn.com 'unsafe-inline';
+            font-src 'self' https://maxcdn.bootstrapcdn.com;
+            connect-src 'self' https://cdn.jsdelivr.net;
+        "
+    >    
+    <link rel="stylesheet" href="./node_modules/simplemde/dist/simplemde.min.css">
+    <script src="./node_modules/simplemde/dist/simplemde.min.js"></script>
+    <style>
+        html, body {
+            height: 100%;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+        }
+        .CodeMirror {
+            flex: 1;
+        }
+
+    </style>
+    <title>Just H*ckin Write</title>
+</head>
+<body>
+    <textarea id="draft_editor"></textarea>
+    <script src='./renderer.js'></script>
+</body>
+</html>

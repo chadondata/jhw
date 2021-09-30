@@ -1,68 +1,14 @@
 {
-  "name": "justheckinwrite",
-  "version": "0.0.1",
-  "description": "Distraction-free cross-platform writing. Just h*ckin write, for crying out loud.",
-  "main": "index.js",
-  "scripts": {
-    "test": "electron .",
-    "start": "electron-forge start",
-    "debug": "DEBUG=true electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chadondata/jhw.git"
-  },
-  "keywords": [
-    "Writing",
-    "ElectronJS",
-    "Node",
-    "NoNipnops"
-  ],
-  "author": "Chad A Harper",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/chadondata/jhw/issues"
-  },
-  "homepage": "https://github.com/chadondata/jhw#readme",
   "devDependencies": {
-    "@electron-forge/cli": "^6.0.0-beta.61",
-    "@electron-forge/maker-deb": "^6.0.0-beta.61",
-    "@electron-forge/maker-rpm": "^6.0.0-beta.61",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.61",
-    "@electron-forge/maker-zip": "^6.0.0-beta.61",
-    "electron": "^14.0.1"
+    "@babel/core": "^7.15.5",
+    "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.2"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0",
-    "simplemde": "^1.11.2"
-  },
-  "config": {
-    "forge": {
-      "packagerConfig": {},
-      "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "justheckinwrite"
-          }
-        },
-        {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
-        }
-      ]
-    }
+    "bootstrap": "^5.1.1",
+    "draft-js": "^0.11.7",
+    "react": "^17.0.2",
+    "react-bootstrap": "^2.0.0-rc.0",
+    "react-dom": "^17.0.2"
   }
 }

@@ -9,7 +9,7 @@ export default class JHW_Navbar extends Component {
     }
     render() {
         return (
-            <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>
+            <Navbar collapseOnSelect expand='lg' bg='light'>
                 <Navbar.Brand href='/'>Just H*ckin Write</Navbar.Brand>
                 <Navbar.Toggle aria-controls='responsive-navbar-nav' />
                 <Navbar.Collapse id='responsive-navbar-nav'>

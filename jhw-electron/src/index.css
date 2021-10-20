@@ -3,43 +3,87 @@ html {
   min-height: 95vh !important;
 }
 
+@font-face {
+  font-family: 'Courier Prime';
+  src: url('fonts/CourierPrime-Regular.ttf') format('truetype');
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   margin: auto;
   margin-bottom: 0;
   max-width: 60rem;
-  min-height: 95vh;
-  background-color: #fafafa;
+  background-color: rgb(255, 255, 255);
 }
 
-.box {
-  height: 80vh;
+.editor {
+  word-wrap: break-word;
+  padding: 30px;
+  margin-top: 1rem;
+  min-width: 90px;
+  font-size: 20px;
+  line-height: 150%;
+  cursor: text;
+  font-family: 'Courier Prime', monospace;
+  text-indent: 3em;
+  background-color: rgb(250, 250, 250);
 }
 
-.box .row.header {
-  flex: 0 1 auto;
-}
-.box .row.content {
-  height: 95%;
-}
-.box .row.footer {
-  flex: 0 1 200px;
+.menu_icon {
+  padding: 1px;
+  margin: 5px;
+  width: 50px;
+  cursor: pointer;
+  font-size: xx-large;
 }
 
+.side_nav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
 
-div.DraftEditor-root {
-  border: 1px solid #BBBBBB;
-  box-shadow: 2px 3px #BBBBBB;
-  background-color: #ffffff;
+.side_nav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
 
-  font-size:xx-large;
-  padding: 25px;
-  margin-top: 1em;
-  min-height: 100%;
+.side_nav a:hover {
+  color: #f1f1f1;
+}
+
+.side_nav .close_button {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.statistics {
+  text-align: right;
+  position: fixed;
+  left: 0;
+  bottom: 0;
   width: 100%;
-  overflow-y: auto;
+  padding: 15px;
 }
-
-div.DraftEditor-editorContainer1, div.public-DraftEditor-content {
-  min-height: 100%!important
+[contenteditable] {
+  outline: 0px solid transparent;
 }

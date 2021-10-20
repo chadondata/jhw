@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import JHW_Editor from "./components/jhw_editor";
-import JHW_Navbar from './components/jhw_navbar';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee, faPenNib } from '@fortawesome/free-solid-svg-icons'
 
-ReactDOM.render(<JHW_Navbar />, document.getElementById('nav'));
+const menu_icon = <FontAwesomeIcon icon={faPenNib} />
+
+ReactDOM.render(menu_icon, document.getElementById("menu_icon"));
 ReactDOM.render(<JHW_Editor />, document.getElementById("editor"));

@@ -2,16 +2,72 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval';">
-
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self' 'unsafe-inline';
+        font-src 'self' 'unsafe-inline' https://fonts.gstatic.com;
+        style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com;
+        script-src 'self' 'unsafe-eval' 'unsafe-inline';
+        ">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Just H*kin' Write</title>
-
   </head>
   <body>
-    <div class="box">
-      <div class="row header" id="nav"></div>
-      <div class="row content" id="editor"></div>
-      <div class="row footer" id="footer"></div>
+
+    <div id="side_nav" class="side_nav">
+      <a href="javascript:void(0)" class="close_button" onclick="close_nav()">&times;</a>
+      <a href="#">Open</a>
+      <a href="#" onclick="new_doc()">New</a>
+      <a href="#">Save</a>
+      <a href="#">Exit</a>
     </div>
+
+    <div class="box">
+      <div class="menu_icon" id="menu_icon" onclick="open_nav()"></div>
+      <div class="row content editor" contenteditable="true" id="editor" onkeyup="text_changed()"></div>
+    </div>
+
+    <div class="statistics" id="statistics">Word Count: 9,999</div>
+
+    <script>
+      document.execCommand('defaultParagraphSeparator', false, 'p');
+
+      function new_doc() {
+        document.getElementById('editor').innerHTML = '<p><br /></p>';
+      }
+
+      function open_nav() {
+        document.getElementById("side_nav").style.width = "250px";
+      }
+
+      function close_nav() {
+        document.getElementById("side_nav").style.width = "0";
+      }
+
+      function count_words(text_content) {
+        text_content = text_content.replace(/[.|,]/g, ' ');
+        text_content = text_content.replace(/(^\s*)|(\s*$)/gi,"");
+        text_content = text_content.replace(/\s\s+/g, ' ');
+        text_content = text_content.replace(/\n /g,"\n");
+
+        console.log(text_content);
+        
+        return text_content.split(/\s/).length;
+      }
+
+      function text_changed() {
+        text_content = ''; //document.getElementById("editor").textContent;
+        html_content = document.getElementById("editor").innerHTML;
+        paragraphs = document.getElementById("editor").getElementsByTagName('*');
+        
+        if(paragraphs.length > 0) {
+          text_content = text_content += paragraphs[0].textContent;
+          for(p = 1; p < paragraphs.length; p++) text_content += ' ' + paragraphs[p].textContent;
+
+        }
+
+        word_count=count_words(text_content);
+        document.getElementById('statistics').textContent = `Word Count: ${word_count}`;
+      }
+    </script>
   </body>
 </html>
